@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Kullanıcı Listesi</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+		<br></br>
+		<h1 class="display-4" align="center">Kullanıcı Listesi</h1>
+		<br></br>
+		<div class="row col-md-auto table-responsive">
+			<table id="usersTable" class="table table-hover">
+				<caption>Tüm Kullanıcılar</caption>
+				<thead align="center">
+					<tr>
+						<th scope="col" align="center">Adı</th>
+						<th scope="col" align="center">Soyadı</th>
+						<th scope="col" align="center">Mail Adresi</th>
+						<th scope="col" align="center">Düzenle</th>
+					</tr>
+				</thead>
+				<th:block th:each="user:${users}">
+					<tr>
+						<td th:text="${user.firstname}" align="center" />
+						<td th:text="${user.lastname}" align="center" />
+						<td th:text="${user.email}" align="center" />
+						<td><a type="submit" th:href="@{/edit/{id}(id=${user.id})}">
+								<i class="fas fa-user-edit ml-2"></i></a></td>
+					</tr>
+				</th:block>
+			</table>
+
+			<form>
+				<div class="margin-top20 text-center">
+					<button type="submit" class="btn btn-outline-secondary">
+						<a th:href="@{/login}"> Ana Sayfa </a>
+					</button>
+				</div>
+				<br></br>
+				<div class="margin-top20 text-center">
+					<button class="btn btn-outline-secondary">
+						<a th:href="@{/home/home}" class="d-flex justify-content-center">Profile
+							Geri Dön</a>
+					</button>
+				</div>
+				<br></br> <br></br> <br></br>
+			</form>
+</body>
+</html>

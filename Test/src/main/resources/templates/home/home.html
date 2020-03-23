@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Home</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="container">
+		<br></br> <br></br>
+		<h2 class="display-4 text-center">
+			Profil Sayfanıza Hoşgeldiniz, <span th:utext="${userName}"></span>
+		</h2>
+		<br></br>
+		<div class="margin-top20 text-center">
+			<button type="submit" class="btn btn-outline-secondary">
+				<i class="fa fa-barcode"></i> 
+				<a th:href="@{/myBarcodes/{id}(id=${userId})}"> Kendi Barkodlarım </a>
+				<i class="fa fa-barcode"></i>
+			</button>
+		</div>
+
+	</div>
+	<br></br>
+	<div class="margin-top20 text-center">
+		<button type="submit" class="btn btn-outline-secondary">
+			<i class="fa fa-barcode"></i> <a th:href="@{/allBarcodes}"> Bütün
+				Barkodlar </a> <i class="fa fa-barcode"></i>
+		</button>
+	</div>
+	<br></br>
+
+	<div class="margin-top20 text-center">
+		<button type="submit" class="btn btn-outline-secondary">
+			<i class='fa fa-user'></i> <a th:href="@{/allUsers}"> Bütün
+				Kullanıcılar</a>
+		</button>
+	</div>
+	<br></br>
+	<div class="margin-top20 text-center">
+		<button class="btn btn-outline-secondary">
+			<i class="fa fa-sign-out" aria-hidden="true"></i> <a
+				th:href="@{/logout}">Çıkış Yap</a>
+		</button>
+	</div>
+	</div>
+</body>
+</html>
